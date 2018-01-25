@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>paper-dropdown demo</title>
+    <title>shop-dropdown demo</title>
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="../../polymer/lib/elements/dom-bind.html">
     <link rel="import" href="../../polymer/polymer.html" />
-    <link rel="import" href="../paper-dropdown.html" />
+    <link rel="import" href="../shop-dropdown.html" />
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../../paper-styles/demo-pages.html" />
@@ -25,8 +25,19 @@
 
         .container {
             margin: 0 auto;
-            width: 600px;
+            width: 800px;
             max-width: 90%;
+        }
+        shop-dropdown {
+            margin-right: 25px;
+        }
+        .filter-title {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 16px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -36,18 +47,43 @@
         <demo-snippet>
             <dom-bind>
                 <template>
-                    <paper-dropdown label="Brand"
-                                    value="{{value}}"
+                    <shop-dropdown label="Brand"
+                                    value="{{brandValue}}"
                                     multi="true"
                                     noink
                                     no-animations="true"
                                     no-label-float="true">
-                        <paper-item value="apple">Apple</paper-item>
-                        <paper-item value="banana">Banana</paper-item>
-                        <paper-item value="mango">Mango</paper-item>
-                        <paper-item value="orange">Orange</paper-item>
-                        <paper-item value="tomato">Tomato</paper-item>
-                    </paper-dropdown>
+                        <div class="filter-title">Filter by Brand</div>
+                        <paper-item value="apple">DAP</paper-item>
+                        <paper-item value="banana">Black+Decker</paper-item>
+                        <paper-item value="mango">Dewalt</paper-item>
+                        <paper-item value="orange">Widget</paper-item>
+                        <paper-item value="tomato">Something</paper-item>
+                    </shop-dropdown>
+
+                    <shop-dropdown label="Price"
+                                    value="{{priceValue}}"
+                                    multi="true"
+                                    noink
+                                    no-animations="true"
+                                    no-label-float="true">
+                        <div class="filter-title">Filter by Price</div>
+                        <paper-item value="apple">Under $50</paper-item>
+                        <paper-item value="banana">$50 - $100</paper-item>
+                        <paper-item value="mango">$100 - $200</paper-item>
+                        <paper-item value="orange">greater than
+                            $200</paper-item>
+                    </shop-dropdown>
+
+                    <shop-dropdown label="Amazon Prime"
+                                    value="{{primeValue}}"
+                                    multi="true"
+                                    noink
+                                    no-animations="true"
+                                    no-label-float="true">
+                        <div class="filter-title">Filter by Prime</div>
+                        <paper-item value="apple">Amazon Prime</paper-item>
+                    </shop-dropdown>
 
                 </template>
 
@@ -59,13 +95,13 @@
         <demo-snippet>
             <dom-bind>
                 <template>
-                    <paper-dropdown label="Fruit" value="{{value}}">
+                    <shop-dropdown label="Fruit" value="{{value}}">
                         <paper-item>Apple</paper-item>
                         <paper-item>Banana</paper-item>
                         <paper-item>Mango</paper-item>
                         <paper-item>Orange</paper-item>
                         <paper-item>Tomato</paper-item>
-                    </paper-dropdown>
+                    </shop-dropdown>
 
                     <select value="{{value::change}}">
                         <option>Apple</option>
@@ -77,13 +113,13 @@
                 </template>
             </dom-bind>
             <template is="dom-bind">
-                <paper-dropdown label="Fruit" value="{{value}}">
+                <shop-dropdown label="Fruit" value="{{value}}">
                     <paper-item>Apple</paper-item>
                     <paper-item>Banana</paper-item>
                     <paper-item>Mango</paper-item>
                     <paper-item>Orange</paper-item>
                     <paper-item>Tomato</paper-item>
-                </paper-dropdown>
+                </shop-dropdown>
 
                 <select value="{{value::change}}">
                     <option>Apple</option>
@@ -99,13 +135,13 @@
         <demo-snippet>
             <dom-bind>
                 <template>
-                    <paper-dropdown label="Fruit" value="{{value}}">
+                    <shop-dropdown label="Fruit" value="{{value}}">
                         <paper-item value="apple">Apple</paper-item>
                         <paper-item value="banana">Banana</paper-item>
                         <paper-item value="mango">Mango</paper-item>
                         <paper-item value="orange">Orange</paper-item>
                         <paper-item value="tomato">Tomato</paper-item>
-                    </paper-dropdown>
+                    </shop-dropdown>
 
                     <select value="{{value::change}}">
                         <option value="apple">Apple</option>
@@ -121,13 +157,13 @@
                 </template>
             </dom-bind>
             <template is="dom-bind">
-                <paper-dropdown label="Fruit" value="{{value}}">
+                <shop-dropdown label="Fruit" value="{{value}}">
                     <paper-item value="apple">Apple</paper-item>
                     <paper-item value="banana">Banana</paper-item>
                     <paper-item value="mango">Mango</paper-item>
                     <paper-item value="orange">Orange</paper-item>
                     <paper-item value="tomato">Tomato</paper-item>
-                </paper-dropdown>
+                </shop-dropdown>
 
                 <select value="{{value::change}}">
                     <option value="apple">Apple</option>
@@ -147,13 +183,14 @@
         <demo-snippet>
             <dom-bind>
                 <template>
-                    <paper-dropdown label="Fruit" value="{{value}}" searchable="true">
+                    <shop-dropdown label="Fruit" value="{{value}}"
+                                searchable="true">
                         <paper-item value="apple">Apple</paper-item>
                         <paper-item value="banana">Banana</paper-item>
                         <paper-item value="mango">Mango</paper-item>
                         <paper-item value="orange">Orange</paper-item>
                         <paper-item value="tomato">Tomato</paper-item>
-                    </paper-dropdown>
+                    </shop-dropdown>
 
                     <select value="{{value::change}}">
                         <option value="apple">Apple</option>
@@ -169,13 +206,13 @@
                 </template>
             </dom-bind>
             <template is="dom-bind">
-                <paper-dropdown label="Fruit" value="{{value}}" searchable="true">
+                <shop-dropdown label="Fruit" value="{{value}}" searchable="true">
                     <paper-item value="apple">Apple</paper-item>
                     <paper-item value="banana">Banana</paper-item>
                     <paper-item value="mango">Mango</paper-item>
                     <paper-item value="orange">Orange</paper-item>
                     <paper-item value="tomato">Tomato</paper-item>
-                </paper-dropdown>
+                </shop-dropdown>
 
                 <select value="{{value::change}}">
                     <option value="apple">Apple</option>
@@ -191,25 +228,28 @@
             </template>
         </demo-snippet>
 
-        <h3>Multiple Select (showcasing 2-way binding using 2 paper-dropdowns)</h3>
+        <h3>Multiple Select (showcasing 2-way binding using 2
+            shop-dropdowns)</h3>
         <demo-snippet>
             <dom-bind>
                 <template>
-                    <paper-dropdown label="Fruit" value="{{value}}" searchable="true" multi="true">
+                    <shop-dropdown label="Fruit" value="{{value}}"
+                                searchable="true" multi="true">
                         <paper-item value="apple">Apple</paper-item>
                         <paper-item value="banana">Banana</paper-item>
                         <paper-item value="mango">Mango</paper-item>
                         <paper-item value="orange">Orange</paper-item>
                         <paper-item value="tomato">Tomato</paper-item>
-                    </paper-dropdown>
+                    </shop-dropdown>
 
-                    <paper-dropdown label="Fruit" value="{{value}}" searchable="true" multi="true">
+                    <shop-dropdown label="Fruit" value="{{value}}"
+                                searchable="true" multi="true">
                         <paper-item value="apple">Apple</paper-item>
                         <paper-item value="banana">Banana</paper-item>
                         <paper-item value="mango">Mango</paper-item>
                         <paper-item value="orange">Orange</paper-item>
                         <paper-item value="tomato">Tomato</paper-item>
-                    </paper-dropdown>
+                    </shop-dropdown>
 
                     <p>
                         <b>Selected Fruit Key(s):</b> {{value}}
@@ -217,21 +257,23 @@
                 </template>
             </dom-bind>
             <template is="dom-bind">
-                <paper-dropdown label="Fruit" value="{{value}}" searchable="true" multi="true">
+                <shop-dropdown label="Fruit" value="{{value}}" searchable="true"
+                            multi="true">
                     <paper-item value="apple">Apple</paper-item>
                     <paper-item value="banana">Banana</paper-item>
                     <paper-item value="mango">Mango</paper-item>
                     <paper-item value="orange">Orange</paper-item>
                     <paper-item value="tomato">Tomato</paper-item>
-                </paper-dropdown>
+                </shop-dropdown>
 
-                <paper-dropdown label="Fruit" value="{{value}}" searchable="true" multi="true">
+                <shop-dropdown label="Fruit" value="{{value}}" searchable="true"
+                            multi="true">
                     <paper-item value="apple">Apple</paper-item>
                     <paper-item value="banana">Banana</paper-item>
                     <paper-item value="mango">Mango</paper-item>
                     <paper-item value="orange">Orange</paper-item>
                     <paper-item value="tomato">Tomato</paper-item>
-                </paper-dropdown>
+                </shop-dropdown>
 
                 <p>
                     <b>Selected Fruit Key(s):</b> {{value}}
@@ -244,34 +286,38 @@
             <template>
                 <iron-form id="form1">
                     <form>
-                        <paper-dropdown required label="Fruit" name="fruit" error-message="Please select a fruit">
+                        <shop-dropdown required label="Fruit" name="fruit"
+                                    error-message="Please select a fruit">
                             <paper-item value="apple">Apple</paper-item>
                             <paper-item value="banana">Banana</paper-item>
                             <paper-item value="mango">Mango</paper-item>
                             <paper-item value="orange">Orange</paper-item>
                             <paper-item value="tomato">Tomato</paper-item>
-                        </paper-dropdown><br/>
-                        <paper-dropdown multi required label="Fruit" name="fruits" error-message="Please select at least one fruit">
+                        </shop-dropdown><br/>
+                        <shop-dropdown multi required label="Fruit"
+                                    name="fruits" error-message="Please select at least one fruit">
                             <paper-item value="apple">Apple</paper-item>
                             <paper-item value="banana">Banana</paper-item>
                             <paper-item value="mango">Mango</paper-item>
                             <paper-item value="orange">Orange</paper-item>
                             <paper-item value="tomato">Tomato</paper-item>
-                        </paper-dropdown><br/>
-                        <paper-dropdown multi required label="Fruit" name="fruits" min-length="2" error-message="Please select at least 2 fruits">
+                        </shop-dropdown><br/>
+                        <shop-dropdown multi required label="Fruit"
+                                    name="fruits" min-length="2" error-message="Please select at least 2 fruits">
                             <paper-item value="apple">Apple</paper-item>
                             <paper-item value="banana">Banana</paper-item>
                             <paper-item value="mango">Mango</paper-item>
                             <paper-item value="orange">Orange</paper-item>
                             <paper-item value="tomato">Tomato</paper-item>
-                        </paper-dropdown><br/>
-                        <paper-dropdown multi required label="Fruit" name="fruits" min-length="2" max-length="4" error-message="You can select 2-4 fruits">
+                        </shop-dropdown><br/>
+                        <shop-dropdown multi required label="Fruit"
+                                    name="fruits" min-length="2" max-length="4" error-message="You can select 2-4 fruits">
                             <paper-item value="apple">Apple</paper-item>
                             <paper-item value="banana">Banana</paper-item>
                             <paper-item value="mango">Mango</paper-item>
                             <paper-item value="orange">Orange</paper-item>
                             <paper-item value="tomato">Tomato</paper-item>
-                        </paper-dropdown><br/><br/>
+                        </shop-dropdown><br/><br/>
                         <button type="submit">Submit</button>
                     </form>
                 </iron-form>

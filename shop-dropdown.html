@@ -1,7 +1,9 @@
 <!--
 @license
-    paper-dropdown: Wrapper for paper-dropdown-menu
+    shop-dropdown: Wrapper for paper-dropdown-menu
     Copyright (c) 2017 Pushkar Anand
+
+    Modified by Jennifer Bland for functionality for DIYZ app
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +31,7 @@
 <link rel="import" href="../iron-input/iron-input.html">
 <link rel="import" href="../neon-animation/web-animations.html">
 
-<dom-module id="paper-dropdown">
+<dom-module id="shop-dropdown">
     <template>
         <style>
             #search-box {
@@ -104,65 +106,69 @@
     </template>
     <script>
         /**
-         *   `paper-dropdown` is a wrapper for `paper-dropdown-menu` to enable various features like multi-select, search / filter of
+         *   `shop-dropdown` is a wrapper for `shop-dropdown-menu` to enable
+         *   various
+         *   features like multi-select, search / filter of
          *    items, key value pair and 2-way binding on value.
          *
          *   Values can be bound using `value` attribute.
          *
-         *      <paper-dropdown label="Fruit" value="{{value}}">
+         *      <shop-dropdown label="Fruit" value="{{value}}">
          *          <paper-item>Apple</paper-item>
          *          <paper-item>Banana</paper-item>
          *          <paper-item>Mango</paper-item>
          *          <paper-item>Orange</paper-item>
          *          <paper-item>Tomato</paper-item>
-         *      </paper-dropdown>
+         *      </shop-dropdown>
          *
          *   Each item can have a key-label pair where key is what stored in the model but
          *   label is what user sees. This can be done using `value` attribute for `paper-item`
          *
-         *      <paper-dropdown label="Fruit" value="{{value}}">
+         *      <shop-dropdown label="Fruit" value="{{value}}">
          *          <paper-item value="apple">Apple</paper-item>
          *          <paper-item value="banana">Banana</paper-item>
          *          <paper-item value="mango">Mango</paper-item>
          *          <paper-item value="orange">Orange</paper-item>
          *          <paper-item value="tomato">Tomato</paper-item>
-         *      </paper-dropdown>
+         *      </shop-dropdown>
          *
          *   It also has an optional parameter named `searchable`, which when set to true
          *   will add a text field at the start of the dropdown which users can use to filter
          *   out the items in the dropdown.
          *
-         *      <paper-dropdown label="Fruit" value="{{value}}" searchable="true">
+         *      <shop-dropdown label="Fruit" value="{{value}}"
+         *      searchable="true">
          *          <paper-item value="apple">Apple</paper-item>
          *          <paper-item value="banana">Banana</paper-item>
          *          <paper-item value="mango">Mango</paper-item>
          *          <paper-item value="orange">Orange</paper-item>
          *          <paper-item value="tomato">Tomato</paper-item>
-         *      </paper-dropdown>
+         *      </shop-dropdown>
          *
          *   For multi-select, set `mutli` parameter to true. In this case however, paper-item's
          *   `value` attribute must be set.
          *
-         *      <paper-dropdown label="Fruit" value="{{value}}" multi="true" searchable="true">
+         *      <shop-dropdown label="Fruit" value="{{value}}" multi="true"
+         *      searchable="true">
          *          <paper-item value="apple">Apple</paper-item>
          *          <paper-item value="banana">Banana</paper-item>
          *          <paper-item value="mango">Mango</paper-item>
          *          <paper-item value="orange">Orange</paper-item>
          *          <paper-item value="tomato">Tomato</paper-item>
-         *      </paper-dropdown>
+         *      </shop-dropdown>
          *
-         * @element paper-dropdown
+         * @element shop-dropdown
          * @demo demo/index.html
          */
         Polymer({
-            is: 'paper-dropdown',
+            is: 'shop-dropdown',
 
             /**
-             * @event open is fired when `paper-dropdown` opens.
+             * @event open is fired when `shop-dropdown` opens.
              */
 
             /**
-             * @event close is fired when `paper-dropdown` closes.
+             * @event close is fired when `shop-dropdown` closes.
              */
 
             properties: {
@@ -339,7 +345,7 @@
             DOWN_KEY_CODE: 40,
 
             /**
-             * This method is automatically called when paper-dropdown is
+             * This method is automatically called when shop-dropdown is
              * stamped to DOM. ITs main purpose is to initialize the
              * component's variables.
              *
