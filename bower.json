@@ -1,14 +1,16 @@
 {
-  "name": "paper-dropdown",
+  "name": "shop-dropdown",
   "authors": [
     "Pushkar Anand <pushkar8723@gmail.com>"
+    "Jennifer Bland <ratracegrad@gmail.om>"
   ],
   "demos": {
     "Demo": "demo/index.html"
   },
   "description": "Wrapper for paper-dropdown-menu to facilitate 2-way binding on value in fewer lines HTML code and also enable filter on items.",
-  "main": "paper-dropdown.html",
+  "main": "shop-dropdown.html",
   "keywords": [
+    "shop-dropdown",
     "paper-dropdown",
     "paper-select",
     "material",
