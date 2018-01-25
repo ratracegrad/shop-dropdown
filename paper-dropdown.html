@@ -40,24 +40,25 @@
                 height: 48px;
                 line-height: 48px;
             }
-    
+
             :host * {
                 outline: none;
             }
-    
+
             paper-listbox {
                 overflow-x: hidden;
             }
-    
+
             :host([multi]) ::slotted(paper-item) {
                 background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczMCcgaGVpZ2h0PSczMCc+PHBhdGggZD0nTTE5IDV2MTRINVY1aDE0bTAtMkg1Yy0xLjEgMC0yIC45LTIgMnYxNGMwIDEuMS45IDIgMiAyaDE0YzEuMSAwIDItLjkgMi0yVjVjMC0xLjEtLjktMi0yLTJ6Jy8+PC9zdmc+") no-repeat;
                 background-position: 7px 12px;
                 padding-left: 40px;
             }
-    
+
             :host([multi]) ::slotted(paper-item.iron-selected) {
-                background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczMCcgaGVpZ2h0PSczMCc+PHBhdGggZD0nTTE5IDNINWMtMS4xMSAwLTIgLjktMiAydjE0YzAgMS4xLjg5IDIgMiAyaDE0YzEuMTEgMCAyLS45IDItMlY1YzAtMS4xLS44OS0yLTItMnptLTkgMTRsLTUtNSAxLjQxLTEuNDFMMTAgMTQuMTdsNy41OS03LjU5TDE5IDhsLTkgOXonLz48L3N2Zz4=") no-repeat;
+                background: #FFD100 url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczMCcgaGVpZ2h0PSczMCc+PHBhdGggZD0nTTE5IDNINWMtMS4xMSAwLTIgLjktMiAydjE0YzAgMS4xLjg5IDIgMiAyaDE0YzEuMTEgMCAyLS45IDItMlY1YzAtMS4xLS44OS0yLTItMnptLTkgMTRsLTUtNSAxLjQxLTEuNDFMMTAgMTQuMTdsNy41OS03LjU5TDE5IDhsLTkgOXonLz48L3N2Zz4=") no-repeat;
                 background-position: 7px 12px;
+                font-weight: normal;
             }
         </style>
         <paper-dropdown-menu
@@ -86,7 +87,7 @@
                     selected-items="{{_selectedItems}}"
                     multi="{{multi}}">
                 <template is="dom-if" if="{{searchable}}">
-                    <iron-input 
+                    <iron-input
                         bind-value="{{_searchText}}">
                         <input
                             id="search-box"
