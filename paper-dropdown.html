@@ -414,11 +414,14 @@
              * @private
              */
             _updateSelectedItemLabel: function(label) {
+                // set value shown to label and not what user selects in dropdown
                 if (this.multi) {
                     if (this._selectedItems.length > 1) {
-                        this.$.dropdownMenu._setSelectedItemLabel(this._selectedItems.length + ' items selected');
+                        // this.$.dropdownMenu._setSelectedItemLabel(this._selectedItems.length + ' items selected');
+                        this.$.dropdownMenu._setSelectedItemLabel(this.label);
                     } else if (this._selectedItems.length == 1) {
-                        this.$.dropdownMenu._setSelectedItemLabel(this._selectedItems[0].textContent.trim());
+                        // this.$.dropdownMenu._setSelectedItemLabel(this._selectedItems[0].textContent.trim());
+                        this.$.dropdownMenu._setSelectedItemLabel(this.label);
                     } else {
                         this.$.dropdownMenu._setSelectedItemLabel(null);
                     }
